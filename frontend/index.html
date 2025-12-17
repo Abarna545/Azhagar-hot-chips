@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azhagar Hot Chips & Sweets - Authentic Tamil Snacks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #d32f2f;
+            --primary-dark: #b71c1c;
+            --secondary: #ff9800;
+            --light: #f5f5f5;
+            --dark: #333;
+            --success: #4caf50;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            font-size: 1.2rem;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-icons i:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1585937421612-70caa5f5c295?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e68900;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-success:hover {
+            background-color: #3d8b40;
+        }
+
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-img {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-card h3 {
+            padding: 15px 0;
+            color: var(--dark);
+        }
+
+        /* Products Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 60vh;
+            padding: 50px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Checkout Page */
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .checkout-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .order-items {
+            margin: 20px 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        /* Payment Page */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .payment-method {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary);
+        }
+
+        .payment-method i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Success Page */
+        .success-container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 80px 0;
+            margin: 50px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            background-color: #444;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.4s ease;
+            z-index: 1001;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .quantity-btn {
+            background-color: #f0f0f0;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity {
+            margin: 0 10px;
+        }
+
+        .remove-item {
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Navigation */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cart-sidebar {
+                width: 320px;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .success-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo" onclick="showPage('home')">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZDMzZjJmIiBkPSJNNDU2IDgwSDQwQzE3LjkgODAgMCA5Ny45IDAgMTIwdjI3MmMwIDIyLjEgMTcuOSA0MCA0MCA0MGg0MTZjMjIuMSAwIDQwLTE3LjkgNDAtNDBWMTIwYzAtMjIuMS0xNy45LTQwLTQwLTQwek0yNTYgNDE2Yy0zNS4zIDAtNjQtMjguNy02NC02NHMyOC43LTY0IDY0LTY0IDY0IDI4LjcgNjQgNjQtMjguNyA2NC02NCA2NHptMTEyLTE1MmMwIDQuNC0zLjYgOC04IDhIMTUyYy00LjQgMC04LTMuNi04LTh2LTE2YzAtNC40IDMuNi04IDgtOGgyMDhjNC40IDAgOCAzLjYgOCA4djE2eiIvPjwvc3ZnPg==" alt="Azhagar Logo">
+                    <h1>Azhagar <span>Hot Chips & Sweets</span></h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('products')">Products</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <i class="fas fa-search"></i>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart" onclick="toggleCart()"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>Authentic Tamil Nadu Snacks</h2>
+                <p>Experience the taste of traditional South Indian snacks made with authentic recipes and the finest ingredients. From crispy murukku to sweet treats, we bring the flavors of Tamil Nadu to your doorstep.</p>
+                <a href="#" class="btn" onclick="showPage('products')">Order Now</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container">
+            <div class="section-title">
+                <h2>Our Categories</h2>
+            </div>
+            <div class="categories">
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-img" style="background-image: url('https://www.google.com/imgres?q=potato%20chips%20pic&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F69%2FPotato-Chips.jpg&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPotato_chips&docid=JN8noKbvTT3prM&tbnid=4XQt2NDsOc0kjM&vet=12ahUKEwjHnP-aw5yRAxUv-jgGHciJAUgQM3oECBsQAA..i&w=3072&h=2304&hcb=2&ved=2ahUKEwjHnP-aw5yRAxUv-jgGHciJAUgQM3oECBsQAA');"></div>
+                    <h3>Hot Chips</h3>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-img" style="background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220722/pngtree-indian-murukku-muruku-three-spiral-photo-image_2466793.jpg');"></div>
+                    <h3>Murukku</h3>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Hi7sAsTH0a0N0FZeTW3-k1EI3bT7lX6dGA&s');"></div>
+                    <h3>Sevu</h3>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-img" style="background-image: url('https://img.freepik.com/premium-photo/indian-traditional-mix-sweet-food_55610-2708.jpg?semt=ais_hybrid&w=740&q=80');"></div>
+                    <h3>Sweets</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Preview Section -->
+        <section class="container" id="products-preview">
+            <div class="section-title">
+                <h2>Popular Products</h2>
+            </div>
+            <div class="products">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="btn" onclick="showPage('products')">View All Products</a>
+            </div>
+        </section>
+    </section>
+
+    <!-- Products Page -->
+    <section id="products-page" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>All Products</h2>
+            </div>
+            <div class="products" id="all-products">
+                <!-- All products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Page -->
+    <section id="checkout-page" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Checkout</h2>
+            </div>
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Delivery Information</h3>
+                    <form id="delivery-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Delivery Address</label>
+                            <textarea id="address" name="address" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="text" id="pincode" name="pincode" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="checkout-items">
+                        <!-- Order items will be populated by JavaScript -->
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span id="checkout-total">₹0</span>
+                    </div>
+                    <button class="btn checkout-btn" onclick="showPage('payment')">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Page -->
+    <section id="payment-page" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment</h2>
+            </div>
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method" onclick="selectPayment('card')">
+                            <i class="fas fa-credit-card"></i>
+                            <h4>Credit/Debit Card</h4>
+                            <p>Pay securely with your card</p>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('upi')">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>UPI</h4>
+                            <p>Google Pay, PhonePe, etc.</p>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('cod')">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h4>Cash on Delivery</h4>
+                            <p>Pay when you receive</p>
+                        </div>
+                    </div>
+                    
+                    <div id="card-payment" style="display: none; margin-top: 30px;">
+                        <h4>Card Details</h4>
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name">
+                        </div>
+                    </div>
+
+                    <div id="upi-payment" style="display: none; margin-top: 30px;">
+                        <h4>UPI Payment</h4>
+                        <div class="form-group">
+                            <label for="upi-id">UPI ID</label>
+                            <input type="text" id="upi-id" placeholder="yourname@upi">
+                        </div>
+                    </div>
+
+                    <div class="page-navigation">
+                        <button class="btn btn-secondary" onclick="showPage('checkout')">Back to Checkout</button>
+                        <button class="btn btn-success" onclick="processPayment()">Complete Payment</button>
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="payment-items">
+                        <!-- Order items will be populated by JavaScript -->
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span id="payment-total">₹0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Page -->
+    <section id="success-page" class="page">
+        <div class="container">
+            <div class="success-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Thank you for your order. Your order has been confirmed and will be delivered soon.</p>
+                <p><strong>Order ID: #<span id="order-id">12345</span></strong></p>
+                <p>We'll send you a confirmation email shortly.</p>
+                <div style="margin-top: 30px;">
+                    <button class="btn" onclick="showPage('home')">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about-page" class="page">
+        <div class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Azhagar Hot Chips & Sweets</h2>
+                        <p>Founded in 1991, Azhagar Hot Chips & Sweets has been serving authentic Tamil Nadu snacks for over three decades. Our recipes have been passed down through generations, preserving the traditional flavors and techniques that make our products unique.</p>
+                        <p>We use only the finest ingredients, sourced locally whenever possible, to ensure the highest quality in every bite. From our signature murukku to our delectable sweets, each product is made with care and attention to detail.</p>
+                        <p>Our commitment to quality and authenticity has made us a beloved name in Tamil Nadu, and we're excited to share our flavors with snack lovers everywhere.</p>
+                        <a href="#" class="btn btn-secondary" onclick="showPage('products')">Shop Now</a>
+                    </div>
+                    <div class="about-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact-page" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Get in Touch</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone</label>
+                            <input type="tel" id="contact-phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="order-summary">
+                    <h3>Store Information</h3>
+                    <div style="margin-top: 20px;">
+                        <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong></p>
+                        <p>34,ganesh complex,cutcherry road,Mayiladuthurai,Tamil Nadu 609001</p>
+                        
+                        <p style="margin-top: 15px;"><strong><i class="fas fa-phone"></i> Phone:</strong></p>
+                        <p>+91 9488212500</p>
+                        
+                        <p style="margin-top: 15px;"><strong><i class="fas fa-envelope"></i> Email:</strong></p>
+                        <p>info@azhagarchips.com</p>
+                        
+                        <p style="margin-top: 15px;"><strong><i class="fas fa-clock"></i> Business Hours:</strong></p>
+                        <p>Monday - Sunday: 8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Snack Street, Madurai, Tamil Nadu 625001</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@azhagarchips.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#" onclick="showPage('home')">Home</a>
+                    <a href="#" onclick="showPage('products')">Products</a>
+                    <a href="#" onclick="showPage('about')">About Us</a>
+                    <a href="#" onclick="showPage('contact')">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop Categories</h3>
+                    <a href="#" onclick="showPage('products')">Hot Chips</a>
+                    <a href="#" onclick="showPage('products')">Murukku</a>
+                    <a href="#" onclick="showPage('products')">Sevu</a>
+                    <a href="#" onclick="showPage('products')">Sweets</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new products and special offers.</p>
+                    <form onsubmit="subscribeNewsletter(event)">
+                        <input type="email" id="newsletter-email" placeholder="Your Email" style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Azhagar Hot Chips & Sweets. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="sidebar-cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span class="total-amount">₹0</span>
+        </div>
+        <button class="btn checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" onclick="toggleCart()"></div>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Kara Sev",
+                price: 120,
+                category: "sevu",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrhRvLJbxmi1N406Cx8JvdMRzJNZXWoKtKiQ&s",
+                description: "Crispy, spicy chickpea flour noodles, perfect for snacking."
+            },
+            {
+                id: 2,
+                name: "Murukku",
+                price: 150,
+                category: "murukku",
+                image: "https://www.google.com/imgres?q=murruku%20pic%20png&imgurl=https%3A%2F%2Fwww.anandsweets.in%2Fcdn%2Fshop%2Ffiles%2FMuruku.png%3Fv%3D1764239157%26width%3D1946&imgrefurl=https%3A%2F%2Fwww.anandsweets.in%2Fproducts%2Fbutter-chakali-200-gm%3Fsrsltid%3DAfmBOooQWVCDrVQKg5hcQBb8McakyFQfosTyqs234IVApsRQdzFi3wb3&docid=ict24BgUywMtPM&tbnid=rL_E2wduWZU3nM&vet=12ahUKEwiVoO7euZyRAxU0yzgGHX3PLjoQM3oECCcQAA..i&w=1500&h=1500&hcb=2&ved=2ahUKEwiVoO7euZyRAxU0yzgGHX3PLjoQM3oECCcQAA",
+                description: "Traditional Tamil snack made from rice and urad dal flour."
+            },
+            {
+                id: 3,
+                name: "Omapodi",
+                price: 110,
+                category: "sevu",
+                image: "https://www.google.com/imgres?q=omapodi%20pic%20png&imgurl=https%3A%2F%2Fmylaporeganapathys.com%2Fwp-content%2Fuploads%2F2025%2F05%2FOmapodi.jpg&imgrefurl=https%3A%2F%2Fmylaporeganapathys.com%2Fproduct%2Fomapodi-200-gms%2F%3Fsrsltid%3DAfmBOoresCTQ46EB1osi_vN1VIthAoj8j5wH-OAhCNb1g-4n801_yN-v&docid=LJuZH87ZHBxmQM&tbnid=wJD_qYrsJJ-QSM&vet=12ahUKEwi-veehupyRAxVl8DgGHTn1H88QM3oECCAQAA..i&w=450&h=450&hcb=2&ved=2ahUKEwi-veehupyRAxVl8DgGHTn1H88QM3oECCAQAA",
+                description: "Thin, flavorful chickpea flour strands with ajwain flavor."
+            },
+            {
+                id: 4,
+                name: "Mysore Pak",
+                price: 200,
+                category: "sweets",
+                image: "https://www.google.com/imgres?q=mysorepak%20pic%20png&imgurl=https%3A%2F%2Fwww.pngkey.com%2Fpng%2Fdetail%2F252-2525570_mysore-pak-mysore-pak-sweet-png.png&imgrefurl=https%3A%2F%2Fwww.pngkey.com%2Fdetail%2Fu2w7t4u2o0q8q8w7_mysore-pak-mysore-pak-sweet-png%2F&docid=4f4PDqcoxcSNHM&tbnid=8W0m2N-CUDtZDM&vet=12ahUKEwjWleuWu5yRAxUX8zgGHefpHHgQM3oECBwQAA..i&w=820&h=419&hcb=2&ved=2ahUKEwjWleuWu5yRAxUX8zgGHefpHHgQM3oECBwQAA",
+                description: "Rich, sweet dessert made from ghee, sugar, and chickpea flour."
+            },
+            {
+                id: 5,
+                name: "Thattai",
+                price: 130,
+                category: "hot-chips",
+                image: "https://www.google.com/imgres?q=thattai%20pic%20png&imgurl=https%3A%2F%2Fimages.squarespace-cdn.com%2Fcontent%2Fv1%2F603bc7becf34a07d765fc033%2Fcab57c6d-a9ae-4136-9d37-11e69a77f5be%2FIMG_3821.PNG&imgrefurl=https%3A%2F%2Fwww.youreverydaycook.com%2Fblog%2Fthattai-gokulashtami&docid=zc3sqj-9UFpPgM&tbnid=ZifQJM_vZogeZM&vet=12ahUKEwihxNjCupyRAxV-xjgGHUxAFTwQM3oECBIQAA..i&w=828&h=1129&hcb=2&ved=2ahUKEwihxNjCupyRAxV-xjgGHUxAFTwQM3oECBIQAA",
+                description: "Crispy, flat rice flour discs with lentils and spices."
+            },
+            {
+                id: 6,
+                name: "Mixture",
+                price: 180,
+                category: "hot-chips",
+                image: "https://www.google.com/imgres?q=mmixture%20pic%20png&imgurl=https%3A%2F%2Fwww.shutterstock.com%2Fimage-photo%2Fsouth-indian-traditional-evening-snack-260nw-1874625460.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fnimko&docid=ZoE98QxqgrTUrM&tbnid=T4Nx5sBqQjq9NM&vet=12ahUKEwj3u7HSupyRAxXIzTgGHZAaA7sQM3oECCcQAA..i&w=497&h=280&hcb=2&ved=2ahUKEwj3u7HSupyRAxXIzTgGHZAaA7sQM3oECCcQAA",
+                description: "Assorted savory snack mix with nuts, lentils, and spices."
+            },
+            {
+                id: 7,
+                name: "Ribbon Pakoda",
+                price: 140,
+                category: "murukku",
+                image: "https://www.google.com/imgres?q=ribbon%20pakoda%20pic%20png&imgurl=http%3A%2F%2Fwww.gangasweets.com%2Fcdn%2Fshop%2Ffiles%2FRIBBONPAKODA.jpg%3Fv%3D1697482702&imgrefurl=https%3A%2F%2Fwww.gangasweets.com%2Fproducts%2Fribbon-pakoda-250gm&docid=8VFfxYg22ln9-M&tbnid=GkFZAPRDZXLTcM&vet=12ahUKEwj45aflupyRAxV4zzgGHdzpDBsQM3oECBYQAA..i&w=2720&h=2080&hcb=2&ved=2ahUKEwj45aflupyRAxV4zzgGHdzpDBsQM3oECBYQAA",
+                description: "Crispy, ribbon-shaped snack with rice flour and spices."
+            },
+            {
+                id: 8,
+                name: "Badusha",
+                price: 220,
+                category: "sweets",
+                image: "https://www.google.com/imgres?q=badusha%20pic%20png&imgurl=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Ftmt-stagapp%2Fupload%2Fproducts%2F82401731320481.jpeg&imgrefurl=https%3A%2F%2Ftouchmytown.com%2Fhome%2Fsingleproduct%2Fmini-badusha-250g%2FMTIxMTQ%3D%3Fsrsltid%3DAfmBOoq8gEmGoyBUG6ENRloqcXS7MBpgWpbW0A5PxuprFAjnQklpyE9D&docid=I784UJrRbFHsbM&tbnid=L9PGtt9RMKkHnM&vet=12ahUKEwivseL0upyRAxVUwzgGHegzMPkQM3oECBgQAA..i&w=1000&h=1000&hcb=2&ved=2ahUKEwivseL0upyRAxVUwzgGHegzMPkQM3oECBgQAA",
+                description: "Flaky, sweet pastry soaked in sugar syrup."
+            }
+        ];
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentPaymentMethod = '';
+
+        // DOM Elements
+        const cartSidebar = document.querySelector('.cart-sidebar');
+        const overlay = document.querySelector('.overlay');
+        const cartCount = document.querySelector('.cart-count');
+        const sidebarCartItems = document.getElementById('sidebar-cart-items');
+        const totalAmount = document.querySelector('.total-amount');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCart();
+            loadProducts();
+            showPage('home');
+        });
+
+        // Page Navigation
+        function showPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(`${pageName}-page`).classList.add('active');
+            
+            // Update cart and order summaries if needed
+            if (pageName === 'checkout' || pageName === 'payment') {
+                updateCheckoutSummary();
+            }
+            
+            // Close cart if open
+            toggleCart(false);
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Load Products
+        function loadProducts() {
+            const productsContainer = document.querySelector('#products-preview .products');
+            const allProductsContainer = document.getElementById('all-products');
+            
+            // Display first 4 products on home page
+            const previewProducts = products.slice(0, 4);
+            productsContainer.innerHTML = previewProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('${product.image}');"></div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">
+                            <span class="price">₹${product.price}</span>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Display all products on products page
+            allProductsContainer.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('${product.image}');"></div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">
+                            <span class="price">₹${product.price}</span>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            toggleCart(true);
+        }
+
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update sidebar cart items
+            sidebarCartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-img" style="background-image: url('${item.image}');"></div>
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <div class="cart-item-price">₹${item.price}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="decreaseQuantity(${item.id})">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="increaseQuantity(${item.id})">+</button>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${item.id})">Remove</button>
+                    </div>
+                `;
+                sidebarCartItems.appendChild(cartItemElement);
+            });
+            
+            totalAmount.textContent = `₹${total}`;
+            
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function increaseQuantity(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += 1;
+                updateCart();
+            }
+        }
+
+        function decreaseQuantity(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity -= 1;
+                } else {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                updateCart();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        function toggleCart(show) {
+            if (show === undefined) {
+                cartSidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            } else {
+                if (show) {
+                    cartSidebar.classList.add('active');
+                    overlay.classList.add('active');
+                } else {
+                    cartSidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            toggleCart(false);
+            showPage('checkout');
+        }
+
+        function updateCheckoutSummary() {
+            const checkoutItems = document.getElementById('checkout-items');
+            const paymentItems = document.getElementById('payment-items');
+            const checkoutTotal = document.getElementById('checkout-total');
+            const paymentTotal = document.getElementById('payment-total');
+            
+            let total = 0;
+            let itemsHTML = '';
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                itemsHTML += `
+                    <div class="order-item">
+                        <span>${item.name} x ${item.quantity}</span>
+                        <span>₹${itemTotal}</span>
+                    </div>
+                `;
+            });
+            
+            checkoutItems.innerHTML = itemsHTML;
+            paymentItems.innerHTML = itemsHTML;
+            checkoutTotal.textContent = `₹${total}`;
+            paymentTotal.textContent = `₹${total}`;
+        }
+
+        function selectPayment(method) {
+            currentPaymentMethod = method;
+            
+            // Remove selected class from all payment methods
+            document.querySelectorAll('.payment-method').forEach(pm => {
+                pm.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked payment method
+            event.currentTarget.classList.add('selected');
+            
+            // Show relevant payment form
+            document.getElementById('card-payment').style.display = 'none';
+            document.getElementById('upi-payment').style.display = 'none';
+            
+            if (method === 'card') {
+                document.getElementById('card-payment').style.display = 'block';
+            } else if (method === 'upi') {
+                document.getElementById('upi-payment').style.display = 'block';
+            }
+        }
+
+        function processPayment() {
+            if (!currentPaymentMethod) {
+                alert('Please select a payment method');
+                return;
+            }
+            
+            // Generate random order ID
+            const orderId = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('order-id').textContent = orderId;
+            
+            // Clear cart
+            cart = [];
+            updateCart();
+            localStorage.removeItem('cart');
+            
+            // Show success page
+            showPage('success');
+        }
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            alert(`Thank you for subscribing with ${email}!`);
+            document.getElementById('newsletter-email').value = '';
+        }
+    </script>
+</body>
+</html>
+
